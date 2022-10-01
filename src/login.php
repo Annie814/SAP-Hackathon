@@ -31,7 +31,7 @@ function handleLoginRequest($conn) {
             }
 
     } else if ($num == 0) {
-            header("location:view/login.html");
+            header("location:login.html");
             //echo "<br>Email or password wrong. Auto-refresh in 1 seconds.<br>";
         }
     # CloseCon($conn);
