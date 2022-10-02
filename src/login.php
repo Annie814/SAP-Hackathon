@@ -10,10 +10,11 @@ function handleLoginRequest($conn) {
     $password = $_POST['password'];
     $_SESSION['userid'] = $userid;
     if (($userid == '') || ($password == '')) {
-        header("location:index.html");
+        header("location:../index.html");
         //echo "<br>Email or password cannot be empty. Auto-refresh in 1 second.<br>";
         exit;
     }
+
     $sql = "SELECT Count(*) FROM User WHERE (User.UID='$userid' and User.Password='$password')";
     $result = mysqli_query($conn, $sql);
     $num = ($result->fetch_array())[0];
