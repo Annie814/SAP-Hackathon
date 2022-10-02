@@ -26,10 +26,10 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `Calendar`
 --
-DROP TABLE IF EXISTS `Calendar`;
-DROP TABLE IF EXISTS `User`;
-DROP TABLE IF EXISTS `Table`;
-
+-- DROP TABLE IF EXISTS `Calendar`;
+-- DROP TABLE IF EXISTS `User`;
+-- DROP TABLE IF EXISTS `Table`;
+--
 
 CREATE TABLE `Calendar` (
                             `TableID` int(50) DEFAULT NULL,
