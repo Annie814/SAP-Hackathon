@@ -31,7 +31,7 @@ function handleLoginRequest($conn) {
 
 
 function handlePOSTRequest() {
-    $conn = OpenCon();
+    $conn = OpenCon_init();
     if (array_key_exists('login', $_POST)) {
 
         handleLoginRequest($conn);
