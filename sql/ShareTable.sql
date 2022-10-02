@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `Calendar`;
 DROP TABLE IF EXISTS `User`;
 DROP TABLE IF EXISTS `Table`;
+-- for test
 
 CREATE TABLE `Calendar` (
                             `TableID` int(50) DEFAULT NULL,
