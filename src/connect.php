@@ -23,7 +23,7 @@ function OpenCon_init()
     } else {
         echo "Error creating database: " . $conn->error;
     }
-    return $conn;
+    return new mysqli($dbhost, $dbuser, $dbpass, $db) or die("Connect failed: %s\n");;
 
 }
 
