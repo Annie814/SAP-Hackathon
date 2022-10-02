@@ -23,8 +23,8 @@ function OpenCon_init()
     } else {
         echo "Error creating database: " . $conn->error;
     }
+    return $conn;
 
-    OpenCon($conn,$dbhost,$dbuser,$dbpass,$db);
 }
 
 function OpenCon()

@@ -52,10 +52,12 @@ if (!isset($_SESSION['userid'])) {
                  <table class="table table-striped" id="table1">
                      <thead>
                      <tr>
+                         <th>Table Location</th>
+                         <th>Standing Desk</th>
+                         <th>Number of Monitors</th>
+                         <th>VR setup</th>
                          <th>From</th>
                          <th>To</th>
-                         <th>Table Location</th>
-                         <th>Table Utilities</th>
                          <th>Edit booking</th>
                      </tr>
                      </thead>
@@ -69,13 +71,17 @@ ORDER BY `Calendar`.DateStart ASC";
                      if ($results->num_rows > 0){
                          while($row = $results->fetch_assoc()){
                              echo "<tr><td class='col-3'><div class='d-flex align-items-center'>
+                                                            <p class=' mb-0'>"."Floor ".$row["Floor"].", ". "Section ".$row["Section"].", "."Table ID ".$row["TableID"]."</p>
+                                                            </td><td class='col-auto'>
+                                                            <p class=' mb-0'>".$row["F_updown"]."</p>
+                                                            </div></td><td class='col-auto'>
+                                                            <p class=' mb-0'>".$row["F_monitor"]."</p>
+                                                            </div></td><td class='col-auto'>
+                                                            <p class=' mb-0'>".$row["F_vr_setup"]."</p>
+                                                            </td><td class='col-auto'>
                                                             <p class='font-bold ms-3 mb-0'>".$row["DateStart"]."</p>
                                                             </div></td><td class='col-auto'>
                                                             <p class=' mb-0'>".$row["DateFinish"]."</p>
-                                                            </td><td class='col-auto'>
-                                                            <p class=' mb-0'>"."Floor ".$row["Floor"].", ". "Section ".$row["Section"].", "."Table ID ".$row["TableID"]."</p>
-                                                            </td><td class='col-auto'>
-                                                            <p class=' mb-0'>"."Standing Desk: ".$row["F_updown"].", "."Monitors: ".$row["F_monitor"].", "."VR setup: ".$row["F_vr_setup"]."</p>
                                                             </td><td class='col-auto'>
                                                             <p class=' mb-0'>".'dummy'."</p>
                                                             </td></tr>";
