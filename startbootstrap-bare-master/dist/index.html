@@ -48,19 +48,21 @@
     <!-- log in panel-->
     <div class="card d-flex align-items-center justify-content-center position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded"
         style="width: 494px; height: 479px">
-        <div class="card-body">
-            <img src="assets/SAPlogo.png" class="card-img-top mx-auto d-block" style="width:90px;height:45px"
-                alt="SAP logo">
-            <div class="mb-3 mt-5">
-                <label for="formGroupExampleInput" class="form-label">Username</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+        <form action="../../src/login.php" method="post">
+            <div class="card-body">
+                <img src="assets/SAPlogo.png" class="card-img-top mx-auto d-block" style="width:90px;height:45px"
+                    alt="SAP logo">
+                <div class="mb-3 mt-5">
+                    <label for="formGroupExampleInput" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="userid" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="formGroupExampleInput2" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary mt-5" style="width:256px" formaction="../../src/login.php" name="login">Sign In</button>
             </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Password</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
-            </div>
-            <button type="submit" class="btn btn-primary mt-5" style="width:256px">Sign In</button>
-        </div>
+        </form>
 
     </div>
 
