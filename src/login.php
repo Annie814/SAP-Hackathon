@@ -23,7 +23,7 @@ function handleLoginRequest($conn) {
         // echo "<br>Logged In Successfully!<br>";
         header("location:calendar.php");
     } else if ($num == 0) {
-            header("location:index.html");
+            header("location:../index.html");
             //echo "<br>Email or password wrong. Auto-refresh in 1 seconds.<br>";
         }
     # CloseCon($conn);

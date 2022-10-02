@@ -22,12 +22,51 @@ if (!isset($_SESSION['userid'])) {
     <link rel="icon" type="image/x-icon" href="../startbootstrap-bare-master/dist/assets/SAPlogo.png" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="../startbootstrap-bare-master/dist/css/styles.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <!-- datetimepicker -->
+    <script src="../lib/bootstrap-date-time-picker/bootstrap5/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap-date-time-picker/bootstrap5/js/bootstrap-datetimepicker.css" />
+
+
 </head>
 <body>
      <nav class="navbar navbar-expand-lg navbar-dark bg-SAP py-5 sticky-top">
         <form class="container-fluid justify-content-start">
-            <button class="btn btn-SAP fs-4 me-5 ms-5" type="submit" formaction="table_booking.php">Make A Booking</button>
+           <button class="btn btn-SAP fs-4 me-5 ms-5" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Make A Booking</button>
 
+            <!-- The Modal -->
+<!-- Modal -->
+<div class="modal fade backdrop" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Make A Booking</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form_control form_datetime" />
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Check Available Tables</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+$(function(){
+  $(".form_datetime").datetimepicker({
+    formatViewType:'date';
+  });
+
+  $('#datetimepicker').datetimepicker();
+
+
+});
+
+</script> 
             <?php
             $result = $conn->query("SELECT UserType FROM User WHERE (User.UID='{$_SESSION['userid']}')");
             $userType = $result->fetch_array()[0];
@@ -38,7 +77,7 @@ if (!isset($_SESSION['userid'])) {
             ?>
             </form>
 
-        <a href="#" title=""><img src="../startbootstrap-bare-master/dist/assets/profile_image.png" class="img-responsive me-5"></a>
+        <a href="calendar.php" title=""><img src="../startbootstrap-bare-master/dist/assets/profile_image.png" class="img-responsive me-5"></a>
           
 
     </nav>
