@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `Calendar`;
 DROP TABLE IF EXISTS `User`;
 DROP TABLE IF EXISTS `Table`;
--- for test
+
 
 CREATE TABLE `Calendar` (
                             `TableID` int(50) DEFAULT NULL,
@@ -102,9 +102,6 @@ INSERT INTO `User` (`UID`, `Password`, `Name`, `UserType`) VALUES
                                                                (5, '111222', 'Luna', 'Admin'),
                                                                (44, '111222', 'Jason', 'Regular');
 
---
--- Indexes for dumped tables
---
 
 --
 -- Indexes for table `Table`
@@ -123,7 +120,7 @@ COMMIT;
 -- Indexes for table Calendar
 --
 ALTER TABLE Calendar
-    ADD PRIMARY KEY (TableID,UID,Date),
+    ADD PRIMARY KEY (TableID,UID, DateStart, DateFinish),
     ADD KEY UID (UID),
     ADD KEY TableID (TableID);
 
