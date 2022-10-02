@@ -26,9 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `Calendar`
 --
--- DROP TABLE IF EXISTS `Calendar`;
--- DROP TABLE IF EXISTS `User`;
--- DROP TABLE IF EXISTS `Table`;
+DROP TABLE IF EXISTS `Calendar`;
+DROP TABLE IF EXISTS `User`;
+DROP TABLE IF EXISTS `Table`;
 
 
 CREATE TABLE `Calendar` (
@@ -58,9 +58,9 @@ INSERT INTO `Calendar` (`TableID`, `UID`, `DateStart`, `DateFinish`) VALUES
 
 CREATE TABLE `Table` (
                          `TableID` int(50) NOT NULL,
-                         `F_updown` tinyint(1) DEFAULT NULL,
+                         `F_updown` enum('Yes','No') DEFAULT NULL,
                          `F_monitor` enum('one','two') DEFAULT NULL,
-                         `F_vr_setup` tinyint(1) DEFAULT NULL,
+                         `F_vr_setup` enum('Yes','No') DEFAULT NULL,
                          `Floor` int(50) NOT NULL,
                          `Section` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -70,14 +70,14 @@ CREATE TABLE `Table` (
 --
 
 INSERT INTO `Table` (`TableID`, `F_updown`, `F_monitor`, `F_vr_setup`, `Floor`, `Section`) VALUES
-                                                                                               (11, 1, 'two', NULL, 2, 5),
+                                                                                               (11, 'Yes', 'two', NULL, 2, 5),
                                                                                                (12, NULL, NULL, NULL, 2, 9),
-                                                                                               (13, 0, 'one', 0, 1, 4),
-                                                                                               (23, 1, NULL, 1, 3, 8),
-                                                                                               (25, 0, 'two', 1, 3, 9),
-                                                                                               (34, 0, NULL, 1, 3, 4),
-                                                                                               (36, 1, 'two', NULL, 2, 4),
-                                                                                               (44, 0, 'one', 2, 2, 5);
+                                                                                               (13, 'No', 'one', 'No', 1, 4),
+                                                                                               (23, 'Yes', NULL, 'Yes', 3, 8),
+                                                                                               (25, 'No', 'two', 'Yes', 3, 9),
+                                                                                               (34, 'No', NULL, 'Yes', 3, 4),
+                                                                                               (36, 'Yes', 'two', NULL, 2, 4),
+                                                                                               (44, 'No', 'one', 'Yes', 2, 5);
 
 -- --------------------------------------------------------
 
