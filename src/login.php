@@ -16,6 +16,7 @@ function handleLoginRequest($conn) {
     }
     $sql = "SELECT Count(*) FROM User WHERE (User.UID='$userid' and User.Password='$password')";
     $result = mysqli_query($conn, $sql);
+    var_dump();
     $num = ($result->fetch_array())[0];
 
     if ($num == 1) {

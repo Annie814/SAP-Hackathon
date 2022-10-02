@@ -19,7 +19,7 @@ function OpenCon()
 
     $sql = file_get_contents('../sql/ShareTable.sql');
     if ($conn->multi_query($sql) === TRUE) {
-        echo "Table MyGuests created successfully";
+        echo "Table ShareTable created successfully";
     } else {
         echo "Error creating table: " . $conn->error;
     }
