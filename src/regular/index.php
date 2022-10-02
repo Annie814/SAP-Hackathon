@@ -15,7 +15,6 @@ FROM `Calendar` INNER JOIN `User` ON `User`.`UID` = `Calendar`.`UID` INNER JOIN 
     if ($result->num_rows > 0) {
         // output data of each row
         while ($row = $result->fetch_assoc()) {
-
             echo "<div value=" . $row["city"];
             if (isset($_GET['Vcity'])) {
                 if ($_GET['Vcity'] == $row["city"]) {
