@@ -13,14 +13,11 @@ function OpenCon()
     $sql = "CREATE DATABASE IF NOT EXISTS ShareTable";
     if ($conn->query($sql) === TRUE) {
         echo "Database created successfully";
-
     } else {
         echo "Error creating database: " . $conn->error;
     }
 
     $sql = file_get_contents('../sql/ShareTable.sql');
-
-
     if ($conn->multi_query($sql) === TRUE) {
         echo "Table MyGuests created successfully";
     } else {
