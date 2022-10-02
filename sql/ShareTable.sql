@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2022 at 01:49 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.4.19
+-- Generation Time: Oct 02, 2022 at 04:24 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,12 +26,28 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `Calendar`
 --
+DROP TABLE IF EXISTS `Calendar`;
+DROP TABLE IF EXISTS `User`;
+DROP TABLE IF EXISTS `Table`;
 
 CREATE TABLE `Calendar` (
-                            `TableID` int(50) NOT NULL,
-                            `UID` varchar(50) NOT NULL,
-                            `Date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+                            `TableID` int(50) DEFAULT NULL,
+                            `UID` varchar(50) DEFAULT NULL,
+                            `DateStart` datetime DEFAULT NULL,
+                            `DateFinish` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Calendar`
+--
+
+INSERT INTO `Calendar` (`TableID`, `UID`, `DateStart`, `DateFinish`) VALUES
+                                                                         (11, '1', '2022-10-01 09:00:00', '2022-10-17 17:00:00'),
+                                                                         (25, '2', '2022-10-05 19:20:01', '2022-10-31 19:20:01'),
+                                                                         (36, '44', '2025-11-01 19:20:18', NULL),
+                                                                         (36, '5', '2022-10-20 19:20:42', '2022-10-21 19:20:42'),
+                                                                         (44, '44', '2022-10-27 19:21:03', '2022-10-29 19:21:03'),
+                                                                         (36, '5', '2022-10-07 10:22:02', '2022-10-07 19:22:02');
 
 -- --------------------------------------------------------
 
@@ -47,6 +63,20 @@ CREATE TABLE `Table` (
                          `Floor` int(50) NOT NULL,
                          `Section` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Table`
+--
+
+INSERT INTO `Table` (`TableID`, `F_updown`, `F_monitor`, `F_vr_setup`, `Floor`, `Section`) VALUES
+                                                                                               (11, 1, 'two', NULL, 2, 5),
+                                                                                               (12, NULL, NULL, NULL, 2, 9),
+                                                                                               (13, 0, 'one', 0, 1, 4),
+                                                                                               (23, 1, NULL, 1, 3, 8),
+                                                                                               (25, 0, 'two', 1, 3, 9),
+                                                                                               (34, 0, NULL, 1, 3, 4),
+                                                                                               (36, 1, 'two', NULL, 2, 4),
+                                                                                               (44, 0, 'one', 2, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -67,19 +97,13 @@ CREATE TABLE `User` (
 
 INSERT INTO `User` (`UID`, `Password`, `Name`, `UserType`) VALUES
                                                                (1, '111222', 'Annie', 'Admin'),
-                                                               (2, '111222', 'Tina', 'Regular');
+                                                               (2, '111222', 'Tina', 'Regular'),
+                                                               (5, '111222', 'Luna', 'Admin'),
+                                                               (44, '111222', 'Jason', 'Regular');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `Calendar`
---
-ALTER TABLE `Calendar`
-    ADD PRIMARY KEY (`TableID`,`UID`,`Date`),
-    ADD KEY `UID` (`UID`),
-    ADD KEY `TableID` (`TableID`);
 
 --
 -- Indexes for table `Table`
@@ -93,6 +117,14 @@ ALTER TABLE `Table`
 ALTER TABLE `User`
     ADD PRIMARY KEY (`UID`);
 COMMIT;
+
+--
+-- Indexes for table Calendar
+--
+ALTER TABLE Calendar
+    ADD PRIMARY KEY (TableID,UID,Date),
+    ADD KEY UID (UID),
+    ADD KEY TableID (TableID);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

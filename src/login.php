@@ -10,7 +10,7 @@ function handleLoginRequest($conn) {
     $password = $_POST['password'];
     $_SESSION['userid'] = $userid;
     if (($userid == '') || ($password == '')) {
-        header("location:login.html");
+        header("location:index.html");
         //echo "<br>Email or password cannot be empty. Auto-refresh in 1 second.<br>";
         exit;
     }
@@ -31,7 +31,7 @@ function handleLoginRequest($conn) {
             }
 
     } else if ($num == 0) {
-            header("location:login.html");
+            header("location:index.html");
             //echo "<br>Email or password wrong. Auto-refresh in 1 seconds.<br>";
         }
     # CloseCon($conn);
