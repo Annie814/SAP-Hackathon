@@ -21,16 +21,7 @@ function handleLoginRequest($conn) {
 
     if ($num == 1) {
         // echo "<br>Logged In Successfully!<br>";
-        $result = $conn->query("SELECT UserType FROM User WHERE (User.UID='$userid')");
-        $userType = $result->fetch_array()[0];
-            if ($userType == 'Regular') {
-                echo "You're an Regular User\n";
-                header("location:regular/index.php");
-            } else {
-                echo "You're an Admin User\n";
-                header("location:admin/index.php");
-            }
-
+        header("location:calendar.php");
     } else if ($num == 0) {
             header("location:index.html");
             //echo "<br>Email or password wrong. Auto-refresh in 1 seconds.<br>";
