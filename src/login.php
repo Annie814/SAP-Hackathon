@@ -48,7 +48,6 @@ function handlePOSTRequest() {
 }
 
 if (isset($_POST['login'])) {
-
     handlePOSTRequest();
 }
 
